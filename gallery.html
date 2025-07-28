@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Header with Navigation -->
+    <header>
+      <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+      <nav id="navbar">
+        <div class="logo">Green<span>Hub</span> Resort</div>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="booking.html">Book Now</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+      <div class="section-title">
+        <h2>Resort Gallery</h2>
+        <p>Take a visual tour of our beautiful resort</p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="greenhub sitting area.jpg" alt="Resort Exterior" />
+        </div>
+        <div class="gallery-item">
+          <img src="greenhub exterior.jpeg" alt="exterior" />
+        </div>
+        <div class="gallery-item">
+          <img src="greenhub restaurant.jpg" alt="Restaurant" />
+        </div>
+        <div class="gallery-item">
+          <img src="GreenHub Swimming pool 2.webp" alt="Pool Area" />
+        </div>
+        <div class="gallery-item">
+          <img src="Greenhub Swimming pool.webp" alt="pool_area" />
+        </div>
+        <div class="gallery-item">
+          <img src="greenhub conference hall.jpg" alt="Conference Room" />
+        </div>
+        <div class="gallery-item">
+          <img src="greenhub staff.jpeg" alt="staff" />
+        </div>
+
+        <div class="gallery-item">
+          <img src="greenhub bar area.jpg" alt="bar_area" />
+        </div>
+        <div class="gallery-item">
+          <img src="Greenhub bouncingcastle.jpg" alt="kids_day" />
+        </div>
+        <div class="gallery-item">
+          <img src="Greenhub Parking Area.webp" alt="Parking" />
+        </div>
+        <div class="gallery-item">
+          <img src="Greenhub meals.jpg" alt="meals" />
+        </div>
+        <div class="gallery-item">
+          <img src="Greenhub accommodation.webp" alt="accommodation" />
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GreenHub Resort Masii - Luxury Getaway</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header with Navigation -->
+    <header>
+      <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+      <nav id="navbar">
+        <div class="logo">Green<span>Hub</span> Resort</div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <!---<li><a href="#gallery">Gallery</a></li>-->
+          <li><a href="booking.html">Book Now</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <!---<li><a href="#Social_Media">Social Media </a></li>-->
+          <!---<li><a href="#maps">Maps</a></li>-->
+        </ul>
+      </nav>
+
+      <div class="hero" id="home">
+        <h1>Welcome to GreenHub Resort Masii</h1>
+        <p>
+          Experience luxury in the heart of nature. Your perfect getaway awaits.
+        </p>
+        <p>At GreenHub Resort, Your Satisfaction is our Delight</p>
+        <a href="booking.html" class="btn">Book Your Stay</a>
+      </div>
+    </header>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 GreenHub Resort Masii. All Rights Reserved.</p>
+      <p>Designed with ❤️ for your luxury experience</p>
+      <p>@KaranjaCodes</p>
+    </footer>
+
+    <script>
+      // Navbar scroll effect
+      window.addEventListener("scroll", function () {
+        const navbar = document.getElementById("navbar");
+        if (window.scrollY > 100) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+    </script>
+  </body>
+</html>

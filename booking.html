@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GreenHub Resort - Book Your Stay</title>
+    <style>
+      /* Base Styles */
+      :root {
+        --primary: green;
+        --primary-dark: #1e4635;
+        --secondary: #fcc203;
+        --light: #f8f9fa;
+        --dark: #343a40;
+        --text: black;
+        --white: #ffffff;
+        --gray-light: #e9ecef;
+        --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        --transition: all 0.3s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Montserrat", sans-serif;
+        line-height: 1.6;
+        color: var(--text);
+        background-color: var(--light);
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* Header & Navigation */
+      header {
+        background-color: var(--primary);
+        padding: 1rem 2rem;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: var(--shadow);
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--white);
+      }
+
+      .logo span {
+        color: var(--secondary);
+      }
+
+      .menu-toggle {
+        display: none;
+        color: var(--white);
+        font-size: 1.8rem;
+        cursor: pointer;
+        position: absolute;
+        top: 1rem;
+        right: 2rem;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        color: var(--white);
+        text-decoration: none;
+        font-weight: 500;
+        transition: var(--transition);
+        padding: 0.5rem 0;
+        position: relative;
+      }
+
+      .nav-links a:hover {
+        color: var(--secondary);
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--secondary);
+        transition: var(--transition);
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      /* Booking Section */
+      h2{
+        color: var(--light);
+        font-style: oblique;
+      }
+      p{
+        color: rgb(8, 0, 0);
+        font-style: italic;
+      }
+      .booking {
+       background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url("Greenhub Exterior Main.webp")
+            no-repeat center center/cover;
+        padding: 5rem 1.5rem;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        position: relative;
+        display: inline-block;
+      }
+
+      .section-title h2::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: var(--secondary);
+      }
+
+      .section-title p {
+        font-size: 1.1rem;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      /* Booking Form */
+      .booking-form {
+        max-width: 900px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.281);
+        padding: 2.5rem;
+        border-radius: 10px;
+        box-shadow: var(--shadow);
+      }
+
+      .form-row {
+        display: flex;
+        gap: 2rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group {
+        flex: 1;
+        margin-bottom: 1rem;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        font-style: oblique;
+        font-family: sans-serif;
+        color:var(--secondary);
+      }
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 0.8rem 1rem;
+        border: 1px solid var(--gray-light);
+        border-radius: 5px;
+        font-family: "Montserrat", sans-serif;
+        font-size: 1rem;
+        transition: var(--transition);
+      }
+
+      input:focus,
+      select:focus,
+      textarea:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 2px rgba(42, 92, 69, 0.2);
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+
+      .btn {
+        background-color: var(--primary);
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: var(--transition);
+        width: 100%;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .btn:hover {
+        background-color: var(--primary-dark);
+        transform: translateY(-2px);
+      }
+
+      /* Footer */
+      footer {
+        background: var(--primary);
+        color: var(--white);
+        text-align: center;
+        padding: 2rem 1rem;
+      }
+
+      footer p {
+        margin-bottom: 0.5rem;
+      }
+
+      footer p:nth-child(2) {
+        font-style: italic;
+      }
+
+      footer p:last-child {
+        font-weight: italic;
+        color: whitesmoke;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: block;
+        }
+
+        nav {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .nav-links {
+          flex-direction: column;
+          width: 100%;
+          gap: 0;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.3s ease;
+        }
+
+        .nav-links.active {
+          max-height: 500px;
+          padding: 1rem 0;
+        }
+
+        .nav-links li {
+          padding: 0.5rem 0;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-row {
+          flex-direction: column;
+          gap: 0;
+        }
+
+        .booking {
+          padding: 3rem 1rem;
+        }
+
+        .booking-form {
+          padding: 1.5rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        header {
+          padding: 1rem;
+        }
+
+        .logo {
+          font-size: 1.5rem;
+        }
+
+        .menu-toggle {
+          right: 1rem;
+        }
+
+        .section-title h2 {
+          font-size: 2rem;
+        }
+      }
+    </style>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Header with Navigation -->
+    <header>
+      <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+      <nav id="navbar">
+        <div class="logo">Green<span>Hub</span> Resort</div>
+       <ul class="nav-links" id="nav-links">
+          <li>
+            <i class="fa-solid fa-house-chimney"></i
+            ><a href="index.html"> Home</a>
+          </li>
+          <li>
+            <i class="fa-solid fa-circle-question"></i
+            ><a href="about.html"> About Us</a>
+          </li>
+          <li>
+            <i class="fa-solid fa-bell-concierge"></i
+            ><a href="services.html"> Services</a>
+          </li>
+          <li>
+            <i class="fa-solid fa-clipboard-list"></i></i
+            ><a href="booking.html"> Book Now</a>
+          </li>
+          <li>
+            <i class="fa-solid fa-circle-question"></i
+            ><a href="contact.html"> Contact</a>
+          </li>
+          <a href="gallery.html"></a>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Booking Section -->
+    <section id="booking" class="booking">
+      <div class="section-title">
+        <h2>Book Your Stay</h2>
+        <p>Reserve your luxury experience today</p>
+      </div>
+
+      <div class="booking-form">
+        <form
+          id="reservationForm"
+          action="https://formsubmit.co/karanjacharles586@gmail.com"
+          method="POST"
+        >
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone_number" required />
+            </div>
+            <div class="form-group">
+            <label for="service">Service Type</label>
+            <select id="service" name="service" required>
+              <option value="">Select a service</option>
+              <option value="accommodation">Accommodation</option>
+              <option value="conference">Conference</option>
+              <option value="restaurant">Restaurant</option>
+              <option value="pool">Swimming Pool</option>
+              <option value="full">Full Package</option>
+            </select>
+          </div>
+
+            <div class="form-group">
+              <label for="guests">Number of Guests</label>
+              <select id="guests" name="guests" required>
+                <option value="1">1 Guest</option>
+                <option value="2">2 Guests</option>
+                <option value="3">3 Guests</option>
+                <option value="4">4 Guests</option>
+                <option value="5-10">5-10 Guests</option>
+                <option value="10-20">10-20 Guests</option>
+                <option value="20+">20+ Guests</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="checkin">Check-in Date</label>
+              <input type="date" id="checkin" name="check-in" required />
+            </div>
+
+            <div class="form-group">
+              <label for="checkout">Check-out Date</label>
+              <input type="date" id="checkout" name="check-out" required />
+            </div>
+          </div>
+
+          
+
+          <div class="form-group">
+            <label for="message">Special Requests</label>
+            <textarea
+              id="message"
+              rows="4"
+              name="special_requests"
+              placeholder="Tell us about any special requirements or preferences..."
+            ></textarea>
+          </div>
+
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_cc" value="murrayirungu@gmail.com" />
+          <input
+            type="hidden"
+            name="_subject"
+            value="New Reservation - GreenHub Resort"
+          />
+          <input type="hidden" name="_template" value="table" />
+          <input
+            type="hidden"
+            name="_next"
+            value="https://yourwebsite.com/thank-you.html"
+          />
+
+          <button type="submit" class="btn">
+            <i class="fas fa-paper-plane"></i> Submit Reservation
+          </button>
+        </form>
+      </div>
+    </section>
+
+      <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 GreenHub Resort Masii. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      const menuToggle = document.getElementById("menu-toggle");
+      const navLinks = document.getElementById("nav-links");
+
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        menuToggle.innerHTML = navLinks.classList.contains("active")
+          ? "&times;"
+          : "&#9776;";
+      });
+
+      // Form date validation
+      const checkin = document.getElementById("checkin");
+      const checkout = document.getElementById("checkout");
+
+      // Set min date to today
+      const today = new Date().toISOString().split("T")[0];
+      checkin.min = today;
+
+      // Update checkout min date when checkin changes
+      checkin.addEventListener("change", () => {
+        checkout.min = checkin.value;
+        if (checkout.value && checkout.value < checkin.value) {
+          checkout.value = "";
+        }
+      });
+
+      // Form submission feedback
+      const form = document.getElementById("reservationForm");
+      form.addEventListener("submit", (e) => {
+        // You could add additional validation or feedback here
+        // e.preventDefault(); // Uncomment to test without submitting
+      });
+    </script>
+  </body>
+</html>

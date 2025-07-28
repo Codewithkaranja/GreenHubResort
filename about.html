@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GreenHub Resort - About Us</title>
+    <style>
+      /* Base Styles */
+      :root {
+        --primary: rgb(4, 150, 4);
+        --primary-dark: #1e4635;
+        --secondary: #d4af37;
+        --light: #f8f9fa;
+        --dark: #343a40;
+        --text: #495057;
+        --white: #ffffff;
+        --gray-light: #e9ecef;
+        --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        --transition: all 0.3s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url("Greenhub Exterior Main.webp") no-repeat center center/cover;
+        font-family: "Montserrat", sans-serif;
+        line-height: 1.6;
+        color: var(--text);
+        background-color: var(--light);
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* Header & Navigation */
+      header {
+        background-color: var(--primary);
+        padding: 1rem 2rem;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: var(--shadow);
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--white);
+      }
+
+      .logo span {
+        color: var(--secondary);
+      }
+
+      .menu-toggle {
+        display: none;
+        color: var(--white);
+        font-size: 1.8rem;
+        cursor: pointer;
+        position: absolute;
+        top: 1rem;
+        right: 2rem;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 1.5rem;
+      }
+
+      .nav-links a {
+        color: var(--white);
+        text-decoration: none;
+        font-weight: 500;
+        transition: var(--transition);
+        padding: 0.5rem 0;
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .nav-links a:hover {
+        color: var(--secondary);
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--secondary);
+        transition: var(--transition);
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .nav-links i {
+        font-size: 1rem;
+      }
+
+      /* About Us Section */
+      .about_us {
+        padding: 5rem 1.5rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        background-color: rgba(250, 245, 245, 0);
+        color: #e9ecef;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        color: green;
+        margin-bottom: 1rem;
+        position: relative;
+        display: inline-block;
+      }
+
+      .section-title h2::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: var(--secondary);
+      }
+
+      .section-title p {
+        font-size: 1.1rem;
+        color: var(--text);
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .about_us p {
+        margin-bottom: 1.5rem;
+        font-size: 1.1rem;
+        line-height: 1.8;
+        text-align: center;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* Gallery Section */
+      .gallery {
+        padding: 5rem 1.5rem;
+        background-color: rgba(255, 255, 255, 0.233);
+      }
+      .gallery p {
+        color: #ffffff;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .gallery-item {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        height: 250px;
+      }
+
+      .gallery-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: var(--transition);
+      }
+
+      .gallery-item:hover img {
+        transform: scale(1.05);
+      }
+
+      /* Testimonials Section */
+      .testimonials {
+        padding: 5rem 1.5rem;
+        background-color: rgba(0, 128, 0, 0.137);
+        color: var(--white);
+      }
+
+      .testimonials .section-title h2 {
+        color: var(--primary);
+      }
+
+      .testimonials .section-title p {
+        color: var(--light);
+      }
+
+      .testimonial-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-top: 2rem;
+      }
+
+      .testimonial {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 2rem;
+        border-radius: 10px;
+        backdrop-filter: blur(5px);
+        transition: var(--transition);
+      }
+
+      .testimonial:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .testimonial p {
+        font-style: italic;
+        margin-bottom: 1.5rem;
+        position: relative;
+      }
+
+      .testimonial p::before,
+      .testimonial p::after {
+        content: '"';
+        font-size: 1.5rem;
+        color: var(--secondary);
+        opacity: 0.5;
+      }
+
+      .author {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .author img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid var(--secondary);
+      }
+
+      .author .info h4 {
+        color: var(--white);
+        margin-bottom: 0.3rem;
+      }
+
+      .author .info p {
+        font-size: 0.9rem;
+        color: var(--gray-light);
+        font-style: normal;
+      }
+
+      /* Footer */
+      footer {
+        background: var(--primary);
+        color: var(--white);
+        text-align: center;
+        padding: 2rem 1rem;
+      }
+
+      footer p {
+        margin-bottom: 0.5rem;
+      }
+
+      footer p:nth-child(2) {
+        font-style: italic;
+      }
+
+      footer p:last-child {
+        font-weight: 200;
+        color: var(--light);
+        font-style: italic;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: block;
+        }
+
+        nav {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .nav-links {
+          flex-direction: column;
+          width: 100%;
+          gap: 0;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.3s ease;
+        }
+
+        .nav-links.active {
+          max-height: 500px;
+          padding: 1rem 0;
+        }
+
+        .nav-links li {
+          padding: 0.8rem 0;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .about_us,
+        .gallery,
+        .testimonials {
+          padding: 3rem 1rem;
+        }
+
+        .section-title h2 {
+          font-size: 2rem;
+        }
+
+        .gallery-grid {
+          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        }
+      }
+
+      @media (max-width: 480px) {
+        header {
+          padding: 1rem;
+        }
+
+        .logo {
+          font-size: 1.5rem;
+        }
+
+        .menu-toggle {
+          right: 1rem;
+        }
+
+        .testimonial {
+          padding: 1.5rem;
+        }
+
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Header with Navigation -->
+    <header>
+      <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+      <nav id="navbar">
+        <div class="logo">Green<span>Hub</span> Resort</div>
+        <ul class="nav-links" id="nav-links">
+          <li>
+            <a href="index.html"
+              ><i class="fa-solid fa-house-chimney"></i> Home</a
+            >
+          </li>
+          <li>
+            <a href="about.html"
+              ><i class="fa-solid fa-circle-question"></i> About Us</a
+            >
+          </li>
+          <li>
+            <a href="services.html"
+              ><i class="fa-solid fa-bell-concierge"></i> Services</a
+            >
+          </li>
+          <li>
+            <a href="booking.html"
+              ><i class="fa-solid fa-clipboard-list"></i> Book Now</a
+            >
+          </li>
+          <li>
+            <a href="contact.html"
+              ><i class="fa-solid fa-circle-question"></i> Contact</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- About Us Section -->
+    <section id="about_us" class="about_us">
+      <div class="section-title">
+        <h2>About Us</h2>
+      </div>
+      <div>
+        <p>
+          GreenHub Resort Masii is a stylish hotel in Machakos County, just 1
+          minute from Masii Town and Kitui Road. We offer modern rooms, elegant
+          interiors, and scenic views of the Eastern Kenya hills — perfect for
+          both business and leisure stays.
+        </p>
+
+        <p>
+          Enjoy top amenities including a sparkling pool, on-site restaurant,
+          and fully equipped conference hall. Whether you're here for a quick
+          getaway or a corporate event, GreenHub Resort blends comfort,
+          convenience, and great hospitality.
+        </p>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+      <div class="section-title">
+        <h2>Resort Gallery</h2>
+        <p>Take a visual tour of our beautiful resort</p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="greenhub sitting area.jpg" alt="Resort Exterior" />
+        </div>
+        <div class="gallery-item">
+          <img src="greenhub exterior.jpeg" alt="exterior" />
+        </div>
+        <div class="gallery-item">
+          <img src="greenhub restaurant.jpg" alt="Restaurant" />
+        </div>
+        <div class="gallery-item">
+          <img src="GreenHub Swimming pool 2.webp" alt="Pool Area" />
+        </div>
+        <div class="gallery-item">
+          <img src="Greenhub Swimming pool.webp" alt="pool_area" />
+        </div>
+        <div class="gallery-item">
+          <img src="greenhub conference hall.jpg" alt="Conference Room" />
+        </div>
+        <div class="gallery-item">
+          <img src="greenhub staff.jpeg" alt="staff" />
+        </div>
+        <div class="gallery-item">
+          <img src="greenhub bar area.jpg" alt="bar_area" />
+        </div>
+        <div class="gallery-item">
+          <img src="Greenhub bouncingcastle.jpg" alt="kids_day" />
+        </div>
+        <div class="gallery-item">
+          <img src="Greenhub Parking Area.webp" alt="Parking" />
+        </div>
+        <div class="gallery-item">
+          <img src="Greenhub meals.jpg" alt="meals" />
+        </div>
+        <div class="gallery-item">
+          <img src="Greenhub accommodation.webp" alt="accommodation" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+      <div class="section-title">
+        <h2>Guest Testimonials</h2>
+        <p>What our guests say about us</p>
+      </div>
+
+      <div class="testimonial-container">
+        <div class="testimonial">
+          <p>
+            The perfect blend of luxury and nature. The staff was incredibly
+            attentive, and the facilities were top-notch. Will definitely
+            return!
+          </p>
+          <div class="author">
+            <img
+              src="https://randomuser.me/api/portraits/women/32.jpg"
+              alt="Sarah Johnson"
+            />
+            <div class="info">
+              <h4>Sarah Johnson</h4>
+              <p>Business Executive (World Vision)</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial">
+          <p>
+            Our conference was a huge success thanks to the excellent facilities
+            and support from the GreenHub team. The food was exceptional - I
+            really loved the "kienyeji" chicken!
+          </p>
+          <div class="author">
+            <img
+              src="https://randomuser.me/api/portraits/men/54.jpg"
+              alt="David Kim"
+            />
+            <div class="info">
+              <h4>David Kimanzi</h4>
+              <p>Event Organizer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 GreenHub Resort Masii. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      const menuToggle = document.getElementById("menu-toggle");
+      const navLinks = document.getElementById("nav-links");
+
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        menuToggle.innerHTML = navLinks.classList.contains("active")
+          ? "&times;"
+          : "&#9776;";
+      });
+    </script>
+  </body>
+</html>

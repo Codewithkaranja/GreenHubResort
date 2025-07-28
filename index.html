@@ -4,416 +4,403 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GreenHub Resort Masii - Luxury Getaway</title>
-    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Base Styles */
+      :root {
+        --primary: green;
+        --primary-dark: #1e4635;
+        --secondary: #c99e14;
+        --light: #f8f9fa;
+        --dark: #343a40;
+        --text: #495057;
+        --white: #ffffff;
+        --gray-light: #e9ecef;
+        --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        --transition: all 0.3s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url("Greenhub Exterior Main.webp")
+            no-repeat center center/cover;
+        font-family: "Poppins", sans-serif;
+        line-height: 1.6;
+        color: var(--text);
+        background-color: var(--light);
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+      }
+
+      /* Header & Navigation */
+      header {
+        position: relative;
+        height: 100vh;
+        min-height: 600px;
+        overflow: hidden;
+      }
+
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: var(--primary);
+        padding: 1.5rem 2rem;
+        z-index: 1000;
+        transition: var(--transition);
+      }
+
+      .navbar.scrolled {
+        background-color: var(--primary);
+        box-shadow: var(--shadow);
+        padding: 1rem 2rem;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--white);
+        font-family: "Playfair Display", serif;
+      }
+
+      .logo span {
+        color: var(--secondary);
+      }
+
+      .menu-toggle {
+        display: none;
+        color: var(--white);
+        font-size: 1.8rem;
+        cursor: pointer;
+        position: absolute;
+        top: 1.5rem;
+        right: 2rem;
+        z-index: 1001;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        color: var(--white);
+        text-decoration: none;
+        font-weight: 500;
+        transition: var(--transition);
+        padding: 0.5rem 0;
+        position: relative;
+        font-size: 1.1rem;
+      }
+
+      .nav-links a:hover {
+        color: var(--secondary);
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--secondary);
+        transition: var(--transition);
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      /* Hero Section */
+      .hero {
+        position: relative;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: var(--white);
+        padding: 0 1.5rem;
+        z-index: 1;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
+        z-index: -1;
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1.5rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        animation: fadeInUp 1s ease;
+      }
+
+      .hero p {
+        font-size: 1.3rem;
+        max-width: 700px;
+        margin: 0 auto 2rem;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        animation: fadeInUp 1s ease 0.2s forwards;
+        opacity: 0;
+      }
+
+      .hero p:nth-of-type(2) {
+        animation-delay: 0.4s;
+        font-style: italic;
+      }
+
+      /* Button */
+      .btn {
+        display: inline-block;
+        background-color: var(--secondary);
+        color: var(--primary-dark);
+        padding: 1rem 2.5rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border-radius: 50px;
+        text-decoration: none;
+        transition: var(--transition);
+        border: none;
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: 1rem;
+        animation: fadeInUp 1s ease 0.6s forwards;
+        opacity: 0;
+        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+      }
+
+      .btn:hover {
+        background-color: var(--white);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+      }
+
+      /* Background Video
+      .video-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -2;
+      }*/
+
+      /* Footer */
+      footer {
+        background: var(--primary);
+        color: var(--white);
+        text-align: center;
+        padding: 2.5rem 1rem;
+      }
+
+      footer p {
+        margin-bottom: 0.5rem;
+      }
+
+      footer p:nth-child(2) {
+        font-style: italic;
+      }
+
+      footer p:last-child {
+        font-weight: lighter;
+        font-style: oblique;
+        color: var(--light);
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 992px) {
+        .hero h1 {
+          font-size: 3rem;
+        }
+
+        .hero p {
+          font-size: 1.1rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: block;
+        }
+
+        nav {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .nav-links {
+          flex-direction: column;
+          width: 100%;
+          gap: 0;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.5s ease;
+          position: absolute;
+          top: 80px;
+          left: 0;
+          background-color: var(--primary);
+          padding: 0 2rem;
+        }
+
+        .nav-links.active {
+          max-height: 500px;
+          padding: 1rem 2rem;
+        }
+
+        .nav-links li {
+          padding: 0.8rem 0;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero p {
+          font-size: 1rem;
+        }
+
+        .navbar.scrolled .nav-links {
+          top: 70px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .logo {
+          font-size: 1.5rem;
+        }
+
+        .menu-toggle {
+          top: 1rem;
+          right: 1rem;
+        }
+
+        .hero h1 {
+          font-size: 2rem;
+        }
+      }
+    </style>
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap"
       rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
   </head>
   <body>
     <!-- Header with Navigation -->
     <header>
       <div class="menu-toggle" id="menu-toggle">&#9776;</div>
-      <nav id="navbar">
+      <nav id="navbar" class="navbar">
         <div class="logo">Green<span>Hub</span> Resort</div>
-        <ul class="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about_us">About Us</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#booking">Book Now</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="#Social_Media">Social Media </a></li>
-          <li><a href="#maps">Maps</a></li>
+       <ul class="nav-links" id="nav-links">
+          <li>
+            <i class="fa-solid fa-house-chimney"></i
+            ><a href="index.html"> Home</a>
+          </li>
+          <li>
+            <i class="fa-solid fa-circle-question"></i
+            ><a href="about.html"> About Us</a>
+          </li>
+          <li>
+            <i class="fa-solid fa-bell-concierge"></i
+            ><a href="services.html"> Services</a>
+          </li>
+          <li>
+            <i class="fa-solid fa-clipboard-list"></i></i
+            ><a href="booking.html"> Book Now</a>
+          </li>
+          <li>
+            <i class="fa-solid fa-circle-question"></i
+            ><a href="contact.html"> Contact</a>
+          </li>
+          <a href="gallery.html"></a>
         </ul>
       </nav>
 
+      <!-- Background Video 
+      <video autoplay muted loop class="video-background">
+        <source
+          src="https://assets.mixkit.co/videos/preview/mixkit-countryside-meadow-4075-large.mp4"
+          type="video/mp4"
+        />
+        Your browser does not support the video tag.
+      </video>-->
+
       <div class="hero" id="home">
-        <h1>Welcome to GreenHub Resort Masii</h1>
+        <h1 class="logo">Welcome to Green<span>Hub</span>  Resort Masii</h1>
         <p>
           Experience luxury in the heart of nature. Your perfect getaway awaits.
         </p>
         <p>At GreenHub Resort, Your Satisfaction is our Delight</p>
-        <a href="#booking" class="btn">Book Your Stay</a>
+        <a href="booking.html" class="btn">Book Your Stay</a>
       </div>
     </header>
-
-    <section id="about_us" class="about_us">
-      <div class="section-title">
-        <h2>About Us</h2>
-      </div>
-      <br />
-      <div>
-        <p>
-          Welcome to GreenHub Resort Masii – your premier destination for
-          comfort, style,<br />
-          and unforgettable moments in the heart of Machakos County. Designed
-          with elegance and class,<br />
-          our resort features beautifully furnished interiors, spacious modern
-          rooms,<br />
-          and a dedicated professional staff committed to delivering a top-tier
-          experience.
-        </p>
-
-        <p>
-          Ideally located just a 1-minute drive from Masii Town and Kitui
-          Road,<br />
-          GreenHub Resort offers stunning panoramic views of the surroundin
-          mountain ranges and <br />
-          the breathtaking landscapes of the Eastern Region. Whether you're here
-          for business or leisure,<br />
-          we have everything you need under one roof. Take a refreshing swim in
-          our sparkling swimming pool,<br />
-          savor delicious meals at our on-site restaurant, or host your events
-          and meetings in our fully equipped <br />
-          conference hall. From seamless hospitality to serene
-          surroundings,GreenHub Resort Masii is where luxury <br />
-          meets convenience. Come stay with us and experience the difference.
-        </p>
-      </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services">
-      <div class="section-title">
-        <h2>Our Premium Services</h2>
-        <p>Discover the luxury and comfort we offer</p>
-      </div>
-
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-img">
-            <img src="GreenHub Swimming pool 2.webp" alt="Swimming Pool" />
-          </div>
-          <div class="service-content">
-            <h3>Swimming Pool</h3>
-            <p>
-              Enjoy our Olympic-sized swimming pool with a stunning view of the
-              surrounding landscape. Perfect for relaxation and exercise. (Baby
-              pool available)
-            </p>
-          </div>
-        </div>
-
-        <div class="service-card">
-          <div class="service-img">
-            <img src="greenhub conference hall.jpg" alt="Conferencing" />
-          </div>
-          <div class="service-content">
-            <h3>Conferencing</h3>
-            <p>
-              State-of-the-art conference facilities for business meetings,
-              seminars, and workshops. Equipped with modern technology.
-            </p>
-          </div>
-        </div>
-
-        <div class="service-card">
-          <div class="service-img">
-            <img src="Greenhub accommodation.webp" alt="Accommodation" />
-          </div>
-          <div class="service-content">
-            <h3>Luxury Accommodation</h3>
-            <p>
-              Spacious and elegantly designed rooms with breathtaking views.
-              Experience comfort like never before.
-            </p>
-          </div>
-        </div>
-        <div class="service-card">
-          <div class="service-img">
-            <img src="Greenhub meals.jpg" alt="meals" />
-          </div>
-          <div class="service-content">
-            <h3>Meals</h3>
-            <p>
-              Savor gourmet dishes prepared by our award-winning chefs using
-              locally sourced ingredients.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Booking Section -->
-    <section id="booking" class="booking">
-      <div class="section-title">
-        <h2 style="color: white">Book Your Stay</h2>
-        <p style="color: #ddd">Reserve your luxury experience today</p>
-      </div>
-
-      <div class="booking-form">
-        <form
-          id="reservationForm"
-          action="https://formsubmit.co/karanjacharles586@gmail.com"
-          method="POST"
-        >
-          <div class="form-row">
-            <div class="form-group">
-              <label for="name">Full Name</label>
-              <input type="text" id="name" required />
-            </div>
-
-            <div class="form-group">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" required />
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone_number" required />
-            </div>
-
-            <div class="form-group">
-              <label for="guests">Number of Guests</label>
-              <select id="guests" name="guests" required>
-                <option value="1">1 Guest</option>
-                <option value="2">2 Guests</option>
-                <option value="3">3 Guests</option>
-                <option value="4">4 Guests</option>
-                <option value="5-10">5-10 Guests</option>
-                <option value="10-20">10-20 Guests</option>
-                <option value="20+">20+ Guests</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="checkin">Check-in Date</label>
-              <input type="date" id="checkin" name="check-in" required />
-            </div>
-
-            <div class="form-group">
-              <label for="checkout">Check-out Date</label>
-              <input type="date" id="checkout" name="check-out" required />
-            </div>
-          </div>
-          <div>
-            <input type="hidden" name="_captcha" value="false" />
-          </div>
-          <div>
-            <input type="hidden" name="_cc" value="murrayirungu@gmail.com" />
-          </div>
-          <div>
-            <input type="hidden" name="_subject" value="Enquiry" />
-          </div>
-
-          <div class="form-group">
-            <label for="service">Service Type</label>
-            <select id="service" name="service" required>
-              <option value="">Select a service</option>
-              <option value="accommodation">Accommodation</option>
-              <option value="conference">Conference</option>
-              <option value="restaurant">Restaurant</option>
-              <option value="pool">Swimming Pool</option>
-              <option value="full">Full Package</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="message">Special Requests</label>
-            <textarea
-              id="message"
-              rows="4"
-              name="special_requests"
-              placeholder="leave us a message"
-            ></textarea>
-          </div>
-
-          <button type="submit" class="btn">Submit Reservation</button>
-        </form>
-      </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="gallery" class="gallery">
-      <div class="section-title">
-        <h2>Resort Gallery</h2>
-        <p>Take a visual tour of our beautiful resort</p>
-      </div>
-
-      <div class="gallery-grid">
-        <div class="gallery-item">
-          <img src="greenhub sitting area.jpg" alt="Resort Exterior" />
-        </div>
-        <div class="gallery-item">
-          <img src="greenhub exterior.jpeg" alt="exterior" />
-        </div>
-        <div class="gallery-item">
-          <img src="greenhub restaurant.jpg" alt="Restaurant" />
-        </div>
-        <div class="gallery-item">
-          <img src="GreenHub Swimming pool 2.webp" alt="Pool Area" />
-        </div>
-        <div class="gallery-item">
-          <img src="Greenhub Swimming pool.webp" alt="pool_area" />
-        </div>
-        <div class="gallery-item">
-          <img src="greenhub conference hall.jpg" alt="Conference Room" />
-        </div>
-        <div class="gallery-item">
-          <img src="greenhub staff.jpeg" alt="staff" />
-        </div>
-
-        <div class="gallery-item">
-          <img src="greenhub bar area.jpg" alt="bar_area" />
-        </div>
-        <div class="gallery-item">
-          <img src="Greenhub bouncingcastle.jpg" alt="kids_day" />
-        </div>
-        <div class="gallery-item">
-          <img src="Greenhub Parking Area.webp" alt="Parking" />
-        </div>
-        <div class="gallery-item">
-          <img src="Greenhub meals.jpg" alt="meals" />
-        </div>
-        <div class="gallery-item">
-          <img src="Greenhub accommodation.webp" alt="accommodation" />
-        </div>
-      </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-      <div class="section-title">
-        <h2>Guest Testimonials</h2>
-        <p>What our guests say about us</p>
-      </div>
-
-      <div class="testimonial-container">
-        <div class="testimonial">
-          <p>
-            "The perfect blend of luxury and nature. The staff was incredibly
-            attentive, and the facilities were top-notch. Will definitely
-            return!"
-          </p>
-          <div class="author">
-            <img
-              src="https://randomuser.me/api/portraits/women/32.jpg"
-              alt="Sarah Johnson"
-            />
-            <div class="info">
-              <h4>Sarah Johnson</h4>
-              <p>Business Executive (World Vision)</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial">
-          <p>
-            "Our conference was a huge success thanks to the excellent
-            facilities and support from the GreenHub team. The food was
-            exceptionalI really loved the "kienyeji" chicken!"
-          </p>
-          <div class="author">
-            <img
-              src="https://randomuser.me/api/portraits/men/54.jpg"
-              alt="David Kim"
-            />
-            <div class="info">
-              <h4>David Kimanzi</h4>
-              <p>Event Organizer</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-      <div class="section-title">
-        <h2 style="color: white">Contact Us</h2>
-        <p style="color: #ddd">Get in touch for inquiries and reservations</p>
-      </div>
-
-      <div class="contact-container">
-        <div class="contact-info">
-          <h3>Reach Out to Us</h3>
-
-          <div class="contact-detail">
-            <i class="fas fa-map-marker-alt"></i>
-            <div>
-              <h4>Address</h4>
-              <p>Masii Town, Kitui Road, Machakos County, Kenya</p>
-            </div>
-          </div>
-
-          <div class="contact-detail">
-            <i class="fas fa-phone-alt"></i>
-            <div>
-              <h4>Phone</h4>
-              <p>+254 723 562 484</p>
-            </div>
-          </div>
-
-          <div class="contact-detail">
-            <i class="fas fa-envelope"></i>
-            <div>
-              <h4>Email</h4>
-              <p>
-                <a href="mailto:karanjacharles586@gmail.com" target="_blank">
-                  greenhubresort@gmail.com</a
-                >
-              </p>
-            </div>
-          </div>
-          <br />
-          <div id="Social_Media">
-            <h2>Connect With Us</h2>
-          </div>
-
-          <div class="social-links">
-            <a href="#"
-              ><i class="fab fa-tripadvisor"></i>
-              <img src="tripadvisor logo.png" alt="tripadvisor"
-            /></a>
-            <a
-              href="https://www.facebook.com/profile.php?id=100026515992622"
-              target="_blank"
-            >
-              <img src="fb logo.png" alt="Facebook" />
-            </a>
-            <a href="https://www.tiktok.com/@codewithcharles" target="_blank">
-              <img src="tiktok 2 logo.png" alt="TikTok" />
-            </a>
-            <a href="https://wa.me/254723562484" target="_blank">
-              <img src="whatsapp logo new.gif" alt="WhatsApp" />
-            </a>
-            <a
-              href="https://www.instagram.com/saraha_developersltd/profilecard/?igsh=MTAyMXV3b204eXIxYQ=="
-              target="_blank"
-            >
-              <img src="instagram logo.png" alt="Instagram" />
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="section-title">
-        <h2>Find Us On The Map</h2>
-      </div>
-      <div class="map" id="maps">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15958.228496886055!2d37.45817582550986!3d-1.468474036943582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1827965f2f0e7c4d%3A0x3c0d9a4f8e3a8f7a!2sMasii%2C%20Kenya!5e0!3m2!1sen!2sus!4v1689876543210"
-          allowfullscreen=""
-          loading="lazy"
-        ></iframe>
-      </div>
-    </section>
 
     <!-- Footer -->
     <footer>
       <p>&copy; 2025 GreenHub Resort Masii. All Rights Reserved.</p>
-      <p>Designed with ❤️ for your luxury experience</p>
-      <p>@KaranjaCodes</p>
     </footer>
 
     <script>
+      // Mobile menu toggle
+      const menuToggle = document.getElementById("menu-toggle");
+      const navLinks = document.getElementById("nav-links");
+
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        menuToggle.innerHTML = navLinks.classList.contains("active")
+          ? "&times;"
+          : "&#9776;";
+      });
+
       // Navbar scroll effect
       window.addEventListener("scroll", function () {
         const navbar = document.getElementById("navbar");
@@ -422,6 +409,15 @@
         } else {
           navbar.classList.remove("scrolled");
         }
+      });
+
+      // Fallback for browsers that don't support video autoplay
+      const video = document.querySelector(".video-background");
+      video.play().catch((error) => {
+        // If autoplay fails, show poster image instead
+        video.style.display = "none";
+        document.querySelector(".hero").style.backgroundImage =
+          'url("https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80")';
       });
     </script>
   </body>

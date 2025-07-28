@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GreenHub Resort - Premium Services</title>
+    <style>
+      /* Base Styles */
+      :root {
+        --primary: green;
+        --primary-dark: #1e4635;
+        --secondary: #d4af37;
+        --light: #f8f9fa;
+        --dark: #343a40;
+        --text: black;
+        --white: #ffffff;
+        --gray-light: #e9ecef;
+        --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        --transition: all 0.3s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Montserrat", sans-serif;
+        line-height: 1.6;
+        color: var(--text);
+        background-color: var(--light);
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      /* Header & Navigation */
+      header {
+        background-color: var(--primary);
+        padding: 1rem 2rem;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: var(--shadow);
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--white);
+      }
+
+      .logo span {
+        color: var(--secondary);
+      }
+
+      .menu-toggle {
+        display: none;
+        color: var(--white);
+        font-size: 1.8rem;
+        cursor: pointer;
+        position: absolute;
+        top: 1rem;
+        right: 2rem;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 1.5rem;
+      }
+
+      .nav-links a {
+        color: var(--white);
+        font-weight: 500;
+        padding: 0.5rem 0;
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .nav-links a:hover {
+        color: var(--secondary);
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--secondary);
+        transition: var(--transition);
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .nav-links i {
+        font-size: 1rem;
+      }
+
+      /* Services Section */
+      .services {
+        padding: 5rem 1.5rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 1rem;
+        position: relative;
+        display: inline-block;
+      }
+
+      .section-title h2::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: var(--secondary);
+      }
+
+      .section-title p {
+        font-size: 1.1rem;
+        color: var(--text);
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      /* Services Grid */
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .service-card {
+        background: var(--white);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .service-img {
+        height: 250px;
+        overflow: hidden;
+      }
+
+      .service-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: var(--transition);
+      }
+
+      .service-card:hover .service-img img {
+        transform: scale(1.1);
+      }
+
+      .service-content {
+        padding: 2rem;
+      }
+
+      .service-content h3 {
+        font-size: 1.5rem;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .service-content h3 a {
+        position: relative;
+      }
+
+      .service-content h3 a::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--secondary);
+        transition: var(--transition);
+      }
+
+      .service-content h3 a:hover::after {
+        width: 100%;
+      }
+
+      .service-content p {
+        margin-bottom: 1.5rem;
+        color: var(--text);
+        line-height: 1.7;
+      }
+
+      /* Call to Action */
+      .cta-button {
+        display: inline-block;
+        background-color: var(--secondary);
+        color: var(--primary-dark);
+        padding: 0.8rem 1.5rem;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: var(--transition);
+      }
+
+      .cta-button:hover {
+        background-color: var(--primary);
+        color: var(--white);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(42, 92, 69, 0.3);
+      }
+
+      /* Footer */
+      footer {
+        background: var(--primary);
+        color: var(--white);
+        text-align: center;
+        padding: 3rem 1rem;
+        margin-top: 5rem;
+      }
+
+      footer p {
+        margin-bottom: 0.5rem;
+      }
+
+      footer p:nth-child(2) {
+        font-style: italic;
+      }
+
+      footer p:last-child {
+        font-weight: lighter;
+        font-style: oblique;
+        color: var(--gray-light);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 992px) {
+        .nav-links {
+          gap: 1rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: block;
+        }
+
+        nav {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .nav-links {
+          flex-direction: column;
+          width: 100%;
+          gap: 0;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.3s ease;
+        }
+
+        .nav-links.active {
+          max-height: 500px;
+          padding: 1rem 0;
+        }
+
+        .nav-links li {
+          padding: 0.8rem 0;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .services {
+          padding: 3rem 1rem;
+        }
+
+        .section-title h2 {
+          font-size: 2rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        header {
+          padding: 1rem;
+        }
+
+        .logo {
+          font-size: 1.5rem;
+        }
+
+        .menu-toggle {
+          right: 1rem;
+        }
+      }
+    </style>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Header with Navigation -->
+    <header>
+      <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+      <nav id="navbar">
+        <div class="logo">Green<span>Hub</span> Resort</div>
+        <ul class="nav-links" id="nav-links">
+          <li>
+            <a href="index.html"
+              ><i class="fa-solid fa-house-chimney"></i> Home</a
+            >
+          </li>
+          <li>
+            <a href="about.html"
+              ><i class="fa-solid fa-circle-question"></i> About Us</a
+            >
+          </li>
+          <li>
+            <a href="services.html"
+              ><i class="fa-solid fa-bell-concierge"></i> Services</a
+            >
+          </li>
+          <li>
+            <a href="booking.html"
+              ><i class="fa-solid fa-clipboard-list"></i> Book Now</a
+            >
+          </li>
+          <li>
+            <a href="contact.html"
+              ><i class="fa-solid fa-envelope"></i> Contact</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+      <div class="section-title">
+        <h2>Our Premium Services</h2>
+        <p>Discover the luxury and comfort we offer</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-img">
+            <img src="Greenhub meals.jpg" alt="Meals" />
+          </div>
+          <div class="service-content">
+            <h3><a href="booking.html">Gourmet Dining</a></h3>
+            <p>
+              Savor gourmet dishes prepared by our award-winning chefs using
+              locally sourced ingredients.
+            </p>
+            <a href="booking.html" class="cta-button">Book Now</a>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-img">
+            <img src="GreenHub Swimming pool 2.webp" alt="Swimming Pool" />
+          </div>
+          <div class="service-content">
+            <h3><a href="booking.html">Swimming Pool</a></h3>
+            <p>
+              Enjoy our Olympic-sized swimming pool with a stunning view of the
+              surrounding landscape. Perfect for relaxation and exercise. (Baby
+              pool available)
+            </p>
+            <a href="booking.html" class="cta-button">Book Now</a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-img">
+            <img src="greenhub conference hall.jpg" alt="Conferencing" />
+          </div>
+          <div class="service-content">
+            <h3><a href="booking.html">Conferencing</a></h3>
+            <p>
+              State-of-the-art conference facilities for business meetings,
+              seminars, and workshops. Equipped with modern technology.
+            </p>
+            <a href="booking.html" class="cta-button">Book Now</a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-img">
+            <img src="Greenhub accommodation.webp" alt="Accommodation" />
+          </div>
+          <div class="service-content">
+            <h3><a href="booking.html">Luxury Accommodation</a></h3>
+            <p>
+              Spacious and elegantly designed rooms with breathtaking views.
+              Experience comfort like never before.
+            </p>
+            <a href="booking.html" class="cta-button">Book Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 GreenHub Resort Masii. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      const menuToggle = document.getElementById("menu-toggle");
+      const navLinks = document.getElementById("nav-links");
+
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        menuToggle.innerHTML = navLinks.classList.contains("active")
+          ? "&times;"
+          : "&#9776;";
+      });
+
+      // Close menu when clicking on a link
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+          menuToggle.innerHTML = "&#9776;";
+        });
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener("click", (e) => {
+        if (!e.target.closest("#navbar") && !e.target.closest(".menu-toggle")) {
+          navLinks.classList.remove("active");
+          menuToggle.innerHTML = "&#9776;";
+        }
+      });
+    </script>
+  </body>
+</html>

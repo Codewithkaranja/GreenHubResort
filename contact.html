@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GreenHub Resort - Contact Us</title>
+    <style>
+      /* Base Styles */
+      :root {
+        --primary: green;
+        --primary-dark: #1e4635;
+        --secondary: #d4af37;
+        --light: #f8f9fa10;
+        --dark: #343a40;
+        --text: black;
+        --white: #ffffff;
+        --gray-light: #e9ecef;
+        --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        --transition: all 0.3s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Montserrat", sans-serif;
+        line-height: 1.6;
+        color: var(--text);
+        background-color: var(--light);
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* Header & Navigation */
+      header {
+        background-color: var(--primary);
+        padding: 1rem 2rem;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: var(--shadow);
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--white);
+      }
+
+      .logo span {
+        color: var(--secondary);
+      }
+
+      .menu-toggle {
+        display: none;
+        color: var(--white);
+        font-size: 1.8rem;
+        cursor: pointer;
+        position: absolute;
+        top: 1rem;
+        right: 2rem;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        
+        color: var(--white);
+        text-decoration: none;
+        font-weight: 500;
+        transition: var(--transition);
+        padding: 0.5rem 0;
+        position: relative;
+      }
+
+      .nav-links a:hover {
+        color: var(--secondary);
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--secondary);
+        transition: var(--transition);
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      /* Contact Section */
+      .contact {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url("Greenhub Exterior Main.webp")
+            no-repeat center center/cover;
+        padding: 5rem 1.5rem;
+        color: var(--white);
+      }
+     /* header {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url("Greenhub Exterior Main.webp")
+            no-repeat center center/cover;
+          
+        color: white;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }*/
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        position: relative;
+        display: inline-block;
+      }
+
+      .section-title h2::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: var(--secondary);
+      }
+
+      .section-title p {
+        font-size: 1.1rem;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .contact-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.007);
+        backdrop-filter: blur(10px);
+        padding: 3rem;
+        border-radius: 15px;
+        box-shadow: var(--shadow);
+      }
+
+      .contact-info {
+        padding-right: 2rem;
+      }
+
+      .contact-info h3 {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+        color: var(--secondary);
+      }
+
+      .contact-detail {
+        display: flex;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+        align-items: flex-start;
+      }
+
+      .contact-detail i {
+        font-size: 1.5rem;
+        color: var(--secondary);
+        margin-top: 0.3rem;
+      }
+
+      .contact-detail h4 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .contact-detail p,
+      .contact-detail a {
+        color: var(--gray-light);
+        transition: var(--transition);
+        text-decoration: none;
+      }
+
+      .contact-detail a:hover {
+        color: var(--secondary);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .social-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: black;
+        border-radius: 50%;
+        transition: var(--transition);
+      }
+
+      .social-links a:hover {
+        background: var(--secondary);
+        transform: translateY(-5px);
+      }
+
+      .social-links img {
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+        filter: brightness(0) invert(1);
+      }
+
+      /* Map Section */
+      .map-section {
+        padding: 5rem 1.5rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .map-section .section-title h2 {
+        color: var(--primary);
+      }
+
+      .map-section .section-title p {
+        color:black;
+      }
+
+      .map {
+        height: 500px;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        margin-top: 2rem;
+      }
+
+      .map iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      /* Footer */
+      footer {
+        background: var(--primary);
+        color: whitesmoke;
+        text-align: center;
+        padding: 2rem 1rem;
+      }
+
+      footer p {
+        margin-bottom: 0.5rem;
+      }
+
+      footer p:nth-child(2) {
+        font-style: italic;
+      }
+
+      footer p:last-child {
+        font-weight: bold;
+        color: whitesmoke;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 992px) {
+        .contact-container {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .contact-info {
+          padding-right: 0;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: block;
+        }
+
+        nav {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .nav-links {
+          flex-direction: column;
+          width: 100%;
+          gap: 0;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.3s ease;
+        }
+
+        .nav-links.active {
+          max-height: 500px;
+          padding: 1rem 0;
+        }
+
+        .nav-links li {
+          padding: 0.5rem 0;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact,
+        .map-section {
+          padding: 3rem 1rem;
+        }
+
+        .contact-container {
+          padding: 2rem;
+        }
+
+        .section-title h2 {
+          font-size: 2rem;
+        }
+
+        .map {
+          height: 400px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        header {
+          padding: 1rem;
+        }
+
+        .logo {
+          font-size: 1.5rem;
+        }
+
+        .menu-toggle {
+          right: 1rem;
+        }
+
+        .contact-container {
+          padding: 1.5rem;
+        }
+
+        .map {
+          height: 300px;
+        }
+      }
+    </style>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Header with Navigation -->
+    <header>
+      <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+      <nav id="navbar">
+        <div class="logo">Green<span>Hub</span> Resort</div>
+        <ul class="nav-links" id="nav-links">
+          <li>
+            <i class="fa-solid fa-house-chimney"></i
+            ><a href="index.html"> Home</a>
+          </li>
+          <li>
+            <i class="fa-solid fa-circle-question"></i
+            ><a href="about.html"> About Us</a>
+          </li>
+          <li>
+            <i class="fa-solid fa-bell-concierge"></i
+            ><a href="services.html"> Services</a>
+          </li>
+          <li>
+            <i class="fa-solid fa-clipboard-list"></i></i
+            ><a href="booking.html"> Book Now</a>
+          </li>
+          <li>
+            <i class="fa-solid fa-circle-question"></i
+            ><a href="contact.html"> Contact</a>
+          </li>
+          <a href="gallery.html"></a>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="section-title">
+        <h2>Contact Us</h2>
+        <p>Get in touch for inquiries and reservations</p>
+      </div>
+
+      <div class="contact-container">
+        <div class="contact-info">
+          <h3>Reach Out to Us</h3>
+
+          <div class="contact-detail">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <h4>Address</h4>
+              <p>Masii Town, Kitui Road, Machakos County, Kenya</p>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <i class="fas fa-phone-alt"></i>
+            <div>
+              <h4>Phone</h4>
+              <p>+254 723 562 484</p>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <h4>Email</h4>
+              <p>
+                <a href="mailto:karanjacharles586@gmail.com" >
+                  greenhubresort@gmail.com</a
+                >
+              </p>
+            </div>
+          </div>
+
+          <div id="Social_Media">
+            <h3>Connect With Us</h3>
+          </div>
+
+          <div class="social-links">
+            <a href="#">
+              <img src="tripadvisor logo.png" alt="TripAdvisor" />
+            </a>
+            <a
+              href="https://www.facebook.com/profile.php?id=100026515992622"
+             
+            >
+              <img src="fb logo.png" alt="Facebook" />
+            </a>
+            <a href="https://www.tiktok.com/@codewithcharles" >
+              <img src="tiktok 2 logo.png" alt="TikTok" />
+            </a>
+            <a href="https://wa.me/254723562484" >
+              <img src="whatsapp logo new.gif" alt="WhatsApp" />
+            </a>
+            <a
+              href="https://www.instagram.com/saraha_developersltd/profilecard/?igsh=MTAyMXV3b204eXIxYQ=="
+              
+            >
+              <img src="instagram logo.png" alt="Instagram" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+      <div class="section-title">
+        <h2>Find Us On The Map</h2>
+        <p>Visit us at our beautiful location in Masii</p>
+      </div>
+      <div class="map" id="maps">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15958.228496886055!2d37.45817582550986!3d-1.468474036943582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1827965f2f0e7c4d%3A0x3c0d9a4f8e3a8f7a!2sMasii%2C%20Kenya!5e0!3m2!1sen!2sus!4v1689876543210"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 GreenHub Resort Masii. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      const menuToggle = document.getElementById("menu-toggle");
+      const navLinks = document.getElementById("nav-links");
+
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        menuToggle.innerHTML = navLinks.classList.contains("active")
+          ? "&times;"
+          : "&#9776;";
+      });
+    </script>
+  </body>
+</html>
