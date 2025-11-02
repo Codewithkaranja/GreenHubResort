@@ -199,6 +199,7 @@ header {
         font-size: 3.5rem;
         margin-bottom: 1rem;
         text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        color: white;
       }
 
       .hero p {
@@ -207,6 +208,17 @@ header {
         max-width: 600px;
         text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
       }
+       .typewriter-text {
+        display: inline-block;
+        overflow: hidden;
+        border-right: 3px solid var(--accent);
+        white-space: nowrap;
+        margin: 0 auto;
+        animation: typing 3.5s steps(40, end),
+          blink-caret 0.75s step-end infinite;
+        color: #f8bf05;
+      }
+
 
       .btn {
         display: inline-block;
@@ -299,7 +311,7 @@ header {
       }
 
       .services {
-        background-color: var(--light);
+        background-color: black;
       }
 
       .services-grid {
