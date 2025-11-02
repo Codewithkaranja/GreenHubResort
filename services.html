@@ -1,0 +1,1628 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Premium Services - GreenHub Resort Masii</title>
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <style>
+      :root {
+        --primary: #2e8b57;
+        --secondary: #f5f5dc;
+        --accent: #c8a951;
+        --dark: #1a3c27;
+        --light: #ffffff;
+        --transition: all 0.3s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        line-height: 1.6;
+        color: #333;
+        overflow-x: hidden;
+        background-color: var(--light);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      /* Header & Navigation */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        transition: var(--transition);
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 5%;
+        background-color: transparent;
+        transition: var(--transition);
+      }
+
+      nav.scrolled {
+        background-color: var(--light);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        padding: 1rem 5%;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        font-family: "Playfair Display", serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--light);
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      nav.scrolled .logo {
+        color: var(--primary);
+      }
+
+      .logo span {
+        color: var(--accent);
+      }
+
+      .logo::before {
+        content: "🍃";
+        margin-right: 10px;
+        font-size: 1.5rem;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+      }
+
+      .nav-links li {
+        margin-left: 2rem;
+      }
+
+      .nav-links a {
+        color: var(--light);
+        text-decoration: none;
+        font-weight: 500;
+        transition: var(--transition);
+        position: relative;
+      }
+
+      nav.scrolled .nav-links a {
+        color: var(--dark);
+      }
+
+      .nav-links a:hover {
+        color: var(--accent);
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--accent);
+        transition: var(--transition);
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .menu-toggle {
+        display: none;
+        font-size: 1.5rem;
+        color: var(--light);
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      nav.scrolled .menu-toggle {
+        color: var(--dark);
+      }
+
+      /* Hero Section */
+      .hero {
+        height: 100vh;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: var(--light);
+        padding: 0 5%;
+        overflow: hidden;
+        background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
+          url("Greenhub accommodation.webp");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+
+      .hero-content {
+        max-width: 800px;
+        z-index: 2;
+      }
+
+      .hero h1 {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        min-height: 120px;
+      }
+
+      .typewriter-text {
+        display: inline-block;
+        overflow: hidden;
+        border-right: 3px solid var(--accent);
+        white-space: nowrap;
+        margin: 0 auto;
+        animation: typing 3.5s steps(40, end),
+          blink-caret 0.75s step-end infinite;
+      }
+
+      .hero p {
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
+        max-width: 600px;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .btn {
+        display: inline-block;
+        background: linear-gradient(135deg, var(--accent), #e6c12e);
+        color: var(--dark);
+        padding: 15px 35px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: var(--transition);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      .btn::after {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -60%;
+        width: 20px;
+        height: 200%;
+        background: rgba(255, 255, 255, 0.3);
+        transform: rotate(30deg);
+        transition: all 0.6s;
+      }
+
+      .btn:hover::after {
+        left: 120%;
+      }
+
+      .scroll-down {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: var(--light);
+        font-size: 1.5rem;
+        animation: bounce 2s infinite;
+        cursor: pointer;
+      }
+
+      /* Services Overview */
+      .services-overview {
+        padding: 100px 5%;
+        background-color: var(--secondary);
+      }
+
+      .overview-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 60px;
+      }
+
+      .overview-content {
+        flex: 1;
+      }
+
+      .overview-image {
+        flex: 1;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .overview-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: var(--transition);
+      }
+
+      .overview-image:hover img {
+        transform: scale(1.05);
+      }
+
+      .section-title {
+        text-align: left;
+        margin-bottom: 30px;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 15px;
+      }
+
+      .section-title p {
+        color: #666;
+        max-width: 600px;
+      }
+
+      .overview-content p {
+        margin-bottom: 20px;
+        color: #555;
+        font-size: 1.1rem;
+      }
+
+      .features-list {
+        list-style: none;
+        margin-top: 30px;
+      }
+
+      .features-list li {
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .features-list li:last-child {
+        border-bottom: none;
+      }
+
+      .features-list li i {
+        color: var(--primary);
+        font-size: 1.2rem;
+      }
+
+      /* Services Section */
+      .services {
+        padding: 120px 5%;
+        background-color: var(--light);
+      }
+
+      .services .section-title {
+        text-align: center;
+        margin-bottom: 80px;
+        transform: translateY(30px);
+        opacity: 0;
+        transition: all 0.8s ease;
+      }
+
+      .services .section-title.visible {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 40px;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .service-card {
+        background: var(--light);
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        transition: var(--transition);
+        transform: translateY(50px);
+        opacity: 0;
+      }
+
+      .service-card.visible {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      .service-card:hover {
+        transform: translateY(-15px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .service-img {
+        height: 280px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .service-img::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          to bottom,
+          transparent 0%,
+          rgba(0, 0, 0, 0.1) 100%
+        );
+      }
+
+      .service-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: var(--transition);
+      }
+
+      .service-card:hover .service-img img {
+        transform: scale(1.1);
+      }
+
+      .service-content {
+        padding: 30px;
+        position: relative;
+      }
+
+      .service-content h3 {
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+        color: var(--primary);
+      }
+
+      .service-content h3 a {
+        color: var(--primary);
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .service-content h3 a:hover {
+        color: var(--accent);
+      }
+
+      .service-content p {
+        margin-bottom: 25px;
+        color: #666;
+        line-height: 1.7;
+      }
+
+      .service-features {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      .feature-tag {
+        background: var(--secondary);
+        color: var(--primary);
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+
+      .cta-button {
+        display: inline-block;
+        background: var(--primary);
+        color: var(--light);
+        padding: 12px 25px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: var(--transition);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-button:hover {
+        background: var(--accent);
+        color: var(--dark);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .cta-button::after {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -60%;
+        width: 20px;
+        height: 200%;
+        background: rgba(255, 255, 255, 0.3);
+        transform: rotate(30deg);
+        transition: all 0.6s;
+      }
+
+      .cta-button:hover::after {
+        left: 120%;
+      }
+
+      /* Interactive Services Showcase */
+      .services-showcase {
+        padding: 100px 5%;
+        background-color: var(--secondary);
+      }
+
+      .showcase-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .showcase-tabs {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 50px;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .tab-button {
+        background: var(--light);
+        border: none;
+        padding: 15px 30px;
+        border-radius: 30px;
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: var(--transition);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .tab-button.active {
+        background: var(--primary);
+        color: var(--light);
+      }
+
+      .tab-button:hover:not(.active) {
+        background: var(--accent);
+        color: var(--dark);
+      }
+
+      .tab-content {
+        display: none;
+        animation: fadeIn 0.5s ease;
+      }
+
+      .tab-content.active {
+        display: block;
+      }
+
+      .showcase-content {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+      }
+
+      .showcase-image {
+        flex: 1;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .showcase-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .showcase-text {
+        flex: 1;
+      }
+
+      .showcase-text h3 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: var(--primary);
+      }
+
+      .showcase-text p {
+        margin-bottom: 20px;
+        color: #555;
+        line-height: 1.7;
+      }
+
+      .showcase-features {
+        list-style: none;
+        margin-top: 30px;
+      }
+
+      .showcase-features li {
+        padding: 10px 0;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .showcase-features li i {
+        color: var(--primary);
+      }
+
+      /* Testimonials Section */
+      .testimonials {
+        padding: 100px 5%;
+        background-color: var(--light);
+      }
+
+      .testimonials .section-title {
+        text-align: center;
+      }
+
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .testimonial-card {
+        background: var(--secondary);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: var(--transition);
+      }
+
+      .testimonial-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .testimonial-text {
+        font-style: italic;
+        margin-bottom: 20px;
+        color: #555;
+        line-height: 1.7;
+      }
+
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .author-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: var(--primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--light);
+        font-weight: bold;
+      }
+
+      .author-info h4 {
+        margin-bottom: 5px;
+        color: var(--primary);
+      }
+
+      .author-info p {
+        color: #777;
+        font-size: 0.9rem;
+      }
+
+      /* CTA Section */
+      .cta-section {
+        padding: 100px 5%;
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url("GreenHub Swimming pool 2.webp");
+        background-size: cover;
+        background-position: center;
+        color: var(--light);
+        text-align: center;
+      }
+
+      .cta-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .cta-content h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+      }
+
+      .cta-content p {
+        margin-bottom: 30px;
+        font-size: 1.1rem;
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn-outline {
+        background: transparent;
+        border: 2px solid var(--accent);
+        color: var(--light);
+      }
+
+      .btn-outline:hover {
+        background: var(--accent);
+        color: var(--dark);
+      }
+
+      /* Ambient Sound Toggle */
+      .sound-toggle {
+        position: fixed;
+        bottom: 100px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: var(--primary);
+        color: var(--light);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: var(--transition);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        z-index: 99;
+      }
+
+      .sound-toggle:hover {
+        background: var(--accent);
+        transform: scale(1.1);
+      }
+
+      .sound-tooltip {
+        position: absolute;
+        bottom: 60px;
+        right: 0;
+        background: var(--dark);
+        color: var(--light);
+        padding: 8px 15px;
+        border-radius: 5px;
+        font-size: 0.8rem;
+        white-space: nowrap;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: var(--transition);
+        pointer-events: none;
+      }
+
+      .sound-toggle:hover .sound-tooltip {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* WhatsApp Float Button */
+      .whatsapp-float {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 60px;
+        height: 60px;
+        background-color: #25d366;
+        color: var(--light);
+        border-radius: 50%;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        z-index: 100;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: pulse 2s infinite;
+        transition: var(--transition);
+      }
+
+      .whatsapp-float:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      .whatsapp-float i {
+        font-size: 1.8rem;
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--dark);
+        color: var(--light);
+        padding: 80px 5% 30px;
+        position: relative;
+      }
+
+      footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23c8a951' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+        opacity: 0.3;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+        max-width: 1200px;
+        margin: 0 auto 40px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .footer-column h3 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        color: var(--accent);
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 10px;
+      }
+
+      .footer-links a {
+        color: var(--secondary);
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .footer-links a:hover {
+        color: var(--accent);
+        padding-left: 5px;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .social-links a {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: var(--light);
+        transition: var(--transition);
+      }
+
+      .social-links a:hover {
+        background-color: var(--accent);
+        transform: translateY(-5px);
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.7);
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Animations */
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      @keyframes blink-caret {
+        from,
+        to {
+          border-color: transparent;
+        }
+        50% {
+          border-color: var(--accent);
+        }
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0) translateX(-50%);
+        }
+        40% {
+          transform: translateY(-20px) translateX(-50%);
+        }
+        60% {
+          transform: translateY(-10px) translateX(-50%);
+        }
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+        }
+        70% {
+          box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 992px) {
+        .hero h1 {
+          font-size: 3rem;
+          min-height: 100px;
+        }
+
+        .services-grid {
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .overview-container,
+        .showcase-content {
+          flex-direction: column;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: block;
+        }
+
+        .nav-links {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          width: 70%;
+          height: 100vh;
+          background-color: var(--dark);
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          transition: var(--transition);
+          z-index: 1000;
+        }
+
+        .nav-links.active {
+          right: 0;
+        }
+
+        .nav-links li {
+          margin: 15px 0;
+        }
+
+        .hero {
+          height: 80vh;
+        }
+
+        .hero h1 {
+          font-size: 2.2rem;
+          min-height: 80px;
+        }
+
+        .hero p {
+          font-size: 1rem;
+        }
+
+        .section-title h2 {
+          font-size: 2.2rem;
+        }
+
+        .services {
+          padding: 80px 5%;
+        }
+
+        .cta-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .hero h1 {
+          font-size: 1.8rem;
+          min-height: 60px;
+        }
+
+        .btn,
+        .cta-button {
+          padding: 10px 25px;
+        }
+
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .showcase-tabs {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header with Navigation -->
+    <header>
+      <nav id="navbar">
+        <a href="index.html" class="logo">Green<span>Hub</span> Resort</a>
+        <div class="menu-toggle" id="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="booking.html">Book Now</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>
+          <span class="typewriter-text" id="typewriter"></span>
+        </h1>
+        <p>Where nature meets luxury — your perfect getaway awaits.</p>
+        <a href="booking.html" class="btn">Book Your Stay</a>
+      </div>
+      <div class="scroll-down">
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="services-overview">
+      <div class="overview-container">
+        <div class="overview-content">
+          <div class="section-title">
+            <h2>Experience Unmatched Luxury</h2>
+            <p>Discover our world-class amenities and services</p>
+          </div>
+          <p>
+            At GreenHub Resort Masii, we've curated an exceptional collection of
+            services designed to provide you with an unforgettable experience.
+            From gourmet dining to premium accommodations, every detail has been
+            thoughtfully designed to exceed your expectations.
+          </p>
+          <p>
+            Our resort seamlessly blends modern luxury with the natural beauty
+            of Machakos County, creating a sanctuary where you can relax,
+            rejuvenate, and create lasting memories.
+          </p>
+
+          <ul class="features-list">
+            <li>
+              <i class="fas fa-check"></i> Award-winning culinary experiences
+            </li>
+            <li><i class="fas fa-check"></i> Olympic-sized swimming pools</li>
+            <li>
+              <i class="fas fa-check"></i> State-of-the-art conference
+              facilities
+            </li>
+            <li>
+              <i class="fas fa-check"></i> Luxurious accommodations with
+              panoramic views
+            </li>
+            <li>
+              <i class="fas fa-check"></i> Professional event planning services
+            </li>
+          </ul>
+        </div>
+        <div class="overview-image">
+          <img src="greenhub exterior.jpeg" alt="GreenHub Resort Exterior" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+      <div class="section-title" id="sectionTitle">
+        <h2>Our Premium Services</h2>
+        <p>Discover the luxury and comfort we offer</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card" id="serviceCard1">
+          <div class="service-img">
+            <img src="Greenhub meals.jpg" alt="Gourmet Dining" />
+          </div>
+          <div class="service-content">
+            <h3><a href="booking.html">Gourmet Dining</a></h3>
+            <p>
+              Savor gourmet dishes prepared by our award-winning chefs using
+              locally sourced ingredients. Experience candlelit dinners with
+              authentic Kenyan flavors.
+            </p>
+            <div class="service-features">
+              <span class="feature-tag">Local Cuisine</span>
+              <span class="feature-tag">Fine Dining</span>
+              <span class="feature-tag">Kienyeji Specialties</span>
+            </div>
+            <a href="booking.html" class="cta-button">Book Now</a>
+          </div>
+        </div>
+
+        <div class="service-card" id="serviceCard2">
+          <div class="service-img">
+            <img src="GreenHub Swimming pool 2.webp" alt="Swimming Pool" />
+          </div>
+          <div class="service-content">
+            <h3><a href="booking.html">Swimming Pool</a></h3>
+            <p>
+              Enjoy our Olympic-sized swimming pool with a stunning view of the
+              surrounding landscape. Perfect for relaxation and exercise. (Baby
+              pool available)
+            </p>
+            <div class="service-features">
+              <span class="feature-tag">Olympic Size</span>
+              <span class="feature-tag">Kids Pool</span>
+              <span class="feature-tag">Poolside Service</span>
+            </div>
+            <a href="booking.html" class="cta-button">Book Now</a>
+          </div>
+        </div>
+
+        <div class="service-card" id="serviceCard3">
+          <div class="service-img">
+            <img src="greenhub conference hall.jpg" alt="Conferencing" />
+          </div>
+          <div class="service-content">
+            <h3><a href="booking.html">Conferencing</a></h3>
+            <p>
+              State-of-the-art conference facilities for business meetings,
+              seminars, and workshops. Equipped with modern technology and
+              elegant interiors.
+            </p>
+            <div class="service-features">
+              <span class="feature-tag">AV Equipment</span>
+              <span class="feature-tag">Catering</span>
+              <span class="feature-tag">Event Planning</span>
+            </div>
+            <a href="booking.html" class="cta-button">Book Now</a>
+          </div>
+        </div>
+
+        <div class="service-card" id="serviceCard4">
+          <div class="service-img">
+            <img src="Greenhub accommodation.webp" alt="Accommodation" />
+          </div>
+          <div class="service-content">
+            <h3><a href="booking.html">Luxury Accommodation</a></h3>
+            <p>
+              Spacious and elegantly designed rooms with breathtaking views.
+              Experience comfort like never before with premium amenities and
+              fine finishes.
+            </p>
+            <div class="service-features">
+              <span class="feature-tag">Panoramic Views</span>
+              <span class="feature-tag">Premium Amenities</span>
+              <span class="feature-tag">24/7 Service</span>
+            </div>
+            <a href="booking.html" class="cta-button">Book Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Services Showcase -->
+    <section class="services-showcase">
+      <div class="showcase-container">
+        <div class="section-title">
+          <h2>Explore Our Services</h2>
+          <p>Learn more about what makes each service unique</p>
+        </div>
+
+        <div class="showcase-tabs">
+          <button class="tab-button active" data-tab="dining">
+            Gourmet Dining
+          </button>
+          <button class="tab-button" data-tab="pool">Swimming Pool</button>
+          <button class="tab-button" data-tab="conference">Conferencing</button>
+          <button class="tab-button" data-tab="accommodation">
+            Accommodation
+          </button>
+        </div>
+
+        <div class="tab-content active" id="dining-tab">
+          <div class="showcase-content">
+            <div class="showcase-image">
+              <img src="Greenhub meals.jpg" alt="Gourmet Dining" />
+            </div>
+            <div class="showcase-text">
+              <h3>Exceptional Culinary Experiences</h3>
+              <p>
+                Our gourmet dining experience is curated by award-winning chefs
+                who blend international culinary techniques with authentic
+                Kenyan flavors. We source our ingredients locally to ensure
+                freshness and support our community.
+              </p>
+              <p>
+                From intimate candlelit dinners to grand banquet celebrations,
+                our restaurant offers versatile dining options for every
+                occasion.
+              </p>
+
+              <ul class="showcase-features">
+                <li>
+                  <i class="fas fa-check"></i> Farm-to-table fresh ingredients
+                </li>
+                <li>
+                  <i class="fas fa-check"></i> Specialized Kienyeji chicken
+                  dishes
+                </li>
+                <li>
+                  <i class="fas fa-check"></i> Vegetarian and vegan options
+                </li>
+                <li><i class="fas fa-check"></i> Private dining experiences</li>
+              </ul>
+
+              <a href="booking.html" class="cta-button">Reserve Your Table</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-content" id="pool-tab">
+          <div class="showcase-content">
+            <div class="showcase-image">
+              <img src="GreenHub Swimming pool 2.webp" alt="Swimming Pool" />
+            </div>
+            <div class="showcase-text">
+              <h3>Refresh & Rejuvenate</h3>
+              <p>
+                Our Olympic-sized swimming pool is surrounded by lush greenery,
+                creating a serene oasis for relaxation and recreation. The pool
+                area features comfortable loungers, poolside service, and a
+                separate children's pool for family enjoyment.
+              </p>
+              <p>
+                Whether you're looking to swim laps for exercise or simply float
+                while enjoying the beautiful Machakos scenery, our pool provides
+                the perfect setting.
+              </p>
+
+              <ul class="showcase-features">
+                <li>
+                  <i class="fas fa-check"></i> Olympic dimensions (50m x 25m)
+                </li>
+                <li>
+                  <i class="fas fa-check"></i> Temperature-controlled water
+                </li>
+                <li>
+                  <i class="fas fa-check"></i> Dedicated children's pool area
+                </li>
+                <li>
+                  <i class="fas fa-check"></i> Poolside bar and snack service
+                </li>
+              </ul>
+
+              <a href="booking.html" class="cta-button">Book Pool Access</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-content" id="conference-tab">
+          <div class="showcase-content">
+            <div class="showcase-image">
+              <img src="greenhub conference hall.jpg" alt="Conferencing" />
+            </div>
+            <div class="showcase-text">
+              <h3>Professional Event Spaces</h3>
+              <p>
+                Our state-of-the-art conference facilities are designed to
+                accommodate everything from intimate board meetings to large
+                corporate events. Equipped with the latest audio-visual
+                technology and high-speed internet, our spaces ensure your event
+                runs smoothly.
+              </p>
+              <p>
+                Our professional event planning team is available to assist with
+                every detail, from catering to technical support.
+              </p>
+
+              <ul class="showcase-features">
+                <li>
+                  <i class="fas fa-check"></i> Capacity for up to 200 guests
+                </li>
+                <li>
+                  <i class="fas fa-check"></i> High-speed Wi-Fi throughout
+                </li>
+                <li><i class="fas fa-check"></i> Professional AV equipment</li>
+                <li><i class="fas fa-check"></i> Custom catering options</li>
+              </ul>
+
+              <a href="booking.html" class="cta-button">Inquire About Events</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-content" id="accommodation-tab">
+          <div class="showcase-content">
+            <div class="showcase-image">
+              <img src="Greenhub accommodation.webp" alt="Accommodation" />
+            </div>
+            <div class="showcase-text">
+              <h3>Luxury Stay Experience</h3>
+              <p>
+                Our accommodations are designed with your comfort in mind,
+                featuring spacious layouts, premium amenities, and breathtaking
+                views of the Eastern Kenya hills. Each room is elegantly
+                furnished and equipped with modern conveniences.
+              </p>
+              <p>
+                Choose from a variety of room types to suit your needs, from
+                standard rooms to luxurious suites with private balconies.
+              </p>
+
+              <ul class="showcase-features">
+                <li><i class="fas fa-check"></i> Panoramic hill views</li>
+                <li><i class="fas fa-check"></i> Premium bedding and linens</li>
+                <li>
+                  <i class="fas fa-check"></i> En-suite bathrooms with luxury
+                  amenities
+                </li>
+                <li><i class="fas fa-check"></i> 24-hour room service</li>
+              </ul>
+
+              <a href="booking.html" class="cta-button">Check Availability</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+      <div class="section-title">
+        <h2>What Our Guests Say</h2>
+        <p>Hear from those who have experienced our services</p>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-text">
+            "The gourmet dining experience was exceptional! The Kienyeji chicken
+            was perfectly prepared, and the service was impeccable. We'll
+            definitely be returning for more culinary delights."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar">WK</div>
+            <div class="author-info">
+              <h4>Wanjiku K.</h4>
+              <p>Food Critic</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-text">
+            "Our conference was a huge success thanks to the excellent
+            facilities and support from the GreenHub team. The modern technology
+            and comfortable setting made all the difference."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar">JM</div>
+            <div class="author-info">
+              <h4>James M.</h4>
+              <p>Corporate Client</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-text">
+            "The swimming pools are fantastic! Our kids loved the baby pool
+            while we enjoyed the adult pool with the beautiful view. A perfect
+            family getaway that we'll remember for years."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar">AO</div>
+            <div class="author-info">
+              <h4>Adhiambo O.</h4>
+              <p>Family Vacationer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="cta-content">
+        <h2>Ready to Experience GreenHub?</h2>
+        <p>
+          Book your stay now and discover why our guests keep coming back to
+          experience luxury in harmony with nature.
+        </p>
+        <div class="cta-buttons">
+          <a href="booking.html" class="btn">Book Your Stay</a>
+          <a href="contact.html" class="btn btn-outline">Contact Us</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ambient Sound Toggle -->
+    <div class="sound-toggle" id="soundToggle">
+      <i class="fas fa-volume-up"></i>
+      <div class="sound-tooltip">Ambient Sounds</div>
+    </div>
+
+    <!-- WhatsApp Float Button -->
+    <a
+      href="https://wa.me/254723562484?text=Hello%20GreenHub%20Resort,%20I%27d%20like%20to%20make%20a%20booking."
+      class="whatsapp-float"
+      target="_blank"
+    >
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>GreenHub Resort</h3>
+          <p>
+            Experience luxury in the heart of nature at our serene resort in
+            Machakos, Kenya.
+          </p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="booking.html">Book Now</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Contact Us</h3>
+          <ul class="footer-links">
+            <li>
+              <i class="fas fa-map-marker-alt"></i> Masii, Machakos, Kenya
+            </li>
+            <li><i class="fas fa-phone"></i> +254 723 562 484</li>
+            <li><i class="fas fa-envelope"></i> info@greenhubresort.com</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="copyright">
+        <p>&copy; 2025 GreenHub Resort Masii. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      // Sticky Navigation
+      window.addEventListener("scroll", function () {
+        const navbar = document.getElementById("navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Mobile Menu Toggle
+      const menuToggle = document.getElementById("menu-toggle");
+      const navLinks = document.getElementById("nav-links");
+
+      menuToggle.addEventListener("click", function () {
+        navLinks.classList.toggle("active");
+      });
+
+      // Close mobile menu when clicking on a link
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", function () {
+          navLinks.classList.remove("active");
+        });
+      });
+
+      // Typewriter Effect
+      const typewriterElement = document.getElementById("typewriter");
+      const words = ["Luxury", "Comfort", "Nature", "Peace"];
+      let wordIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+      let typeSpeed = 100;
+
+      function typeWriter() {
+        const currentWord = words[wordIndex];
+
+        if (isDeleting) {
+          typewriterElement.textContent = currentWord.substring(
+            0,
+            charIndex - 1
+          );
+          charIndex--;
+          typeSpeed = 50;
+        } else {
+          typewriterElement.textContent = currentWord.substring(
+            0,
+            charIndex + 1
+          );
+          charIndex++;
+          typeSpeed = 100;
+        }
+
+        if (!isDeleting && charIndex === currentWord.length) {
+          isDeleting = true;
+          typeSpeed = 1000; // Pause at end of word
+        } else if (isDeleting && charIndex === 0) {
+          isDeleting = false;
+          wordIndex = (wordIndex + 1) % words.length;
+          typeSpeed = 500; // Pause before starting next word
+        }
+
+        setTimeout(typeWriter, typeSpeed);
+      }
+
+      // Start typewriter effect
+      setTimeout(typeWriter, 1000);
+
+      // Scroll to sections
+      const scrollDown = document.querySelector(".scroll-down");
+      scrollDown.addEventListener("click", function () {
+        window.scrollTo({
+          top: document.querySelector(".services-overview").offsetTop - 80,
+          behavior: "smooth",
+        });
+      });
+
+      // Scroll Animations
+      function checkVisibility() {
+        const sectionTitle = document.getElementById("sectionTitle");
+        const serviceCards = [
+          document.getElementById("serviceCard1"),
+          document.getElementById("serviceCard2"),
+          document.getElementById("serviceCard3"),
+          document.getElementById("serviceCard4"),
+        ];
+
+        const sectionPosition = sectionTitle.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+
+        if (sectionPosition < screenPosition) {
+          sectionTitle.classList.add("visible");
+
+          serviceCards.forEach((card, index) => {
+            setTimeout(() => {
+              card.classList.add("visible");
+            }, index * 200);
+          });
+        }
+      }
+
+      window.addEventListener("scroll", checkVisibility);
+      window.addEventListener("load", checkVisibility);
+
+      // Interactive Tabs
+      const tabButtons = document.querySelectorAll(".tab-button");
+      const tabContents = document.querySelectorAll(".tab-content");
+
+      tabButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          // Remove active class from all buttons and contents
+          tabButtons.forEach((btn) => btn.classList.remove("active"));
+          tabContents.forEach((content) => content.classList.remove("active"));
+
+          // Add active class to clicked button
+          button.classList.add("active");
+
+          // Show corresponding content
+          const tabId = button.getAttribute("data-tab");
+          document.getElementById(`${tabId}-tab`).classList.add("active");
+        });
+      });
+
+      // Ambient Sound Toggle
+      const soundToggle = document.getElementById("soundToggle");
+      let ambientSound = null;
+      let soundEnabled = false;
+
+      soundToggle.addEventListener("click", function () {
+        soundEnabled = !soundEnabled;
+
+        if (soundEnabled) {
+          // In a real implementation, you would play ambient sounds
+          // For this demo, we'll just change the icon
+          soundToggle.innerHTML =
+            '<i class="fas fa-volume-up"></i><div class="sound-tooltip">Ambient Sounds On</div>';
+          soundToggle.style.background = "var(--accent)";
+
+          // Here you would initialize and play ambient sounds
+          // ambientSound = new Audio('ambient-nature.mp3');
+          // ambientSound.loop = true;
+          // ambientSound.play();
+        } else {
+          soundToggle.innerHTML =
+            '<i class="fas fa-volume-mute"></i><div class="sound-tooltip">Ambient Sounds Off</div>';
+          soundToggle.style.background = "var(--primary)";
+
+          // Stop ambient sounds
+          // if (ambientSound) {
+          //     ambientSound.pause();
+          //     ambientSound.currentTime = 0;
+          // }
+        }
+      });
+    </script>
+  </body>
+</html>

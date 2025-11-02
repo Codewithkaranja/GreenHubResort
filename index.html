@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GreenHub Resort Masii | Luxury Nature Retreat</title>
+    <meta
+      name="description"
+      content="Experience luxury in the heart of nature at GreenHub Resort Masii, Machakos. Premium accommodation, authentic dining, and serene relaxation await."
+    />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <style>
+      :root {
+        --primary: #2e8b57;
+        --secondary: #f5f5dc;
+        --accent: #d4af37;
+        --dark: #1a3c27;
+        --light: #ffffff;
+        --transition: all 0.3s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        line-height: 1.6;
+        color: #333;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      /* Header & Navigation */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        transition: var(--transition);
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 5%;
+        background-color: transparent;
+        transition: var(--transition);
+      }
+
+      .navbar.scrolled {
+        background-color: var(--light);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        padding: 1rem 5%;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        font-family: "Playfair Display", serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--light);
+        text-decoration: none;
+      }
+
+      .navbar.scrolled .logo {
+        color: var(--primary);
+      }
+
+      .logo span {
+        color: var(--accent);
+      }
+
+      .logo::before {
+        content: "🍃";
+        margin-right: 10px;
+        font-size: 1.5rem;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+      }
+
+      .nav-links li {
+        margin-left: 2rem;
+      }
+
+      .nav-links a {
+        color: var(--light);
+        text-decoration: none;
+        font-weight: 500;
+        transition: var(--transition);
+        position: relative;
+      }
+
+      .navbar.scrolled .nav-links a {
+        color: var(--dark);
+      }
+
+      .nav-links a:hover {
+        color: var(--accent);
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--accent);
+        transition: var(--transition);
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .menu-toggle {
+        display: none;
+        font-size: 1.5rem;
+        color: var(--light);
+        cursor: pointer;
+      }
+
+      /* Hero Section */
+      .hero {
+        height: 100vh;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: var(--light);
+        padding: 0 5%;
+        overflow: hidden;
+      }
+
+      .slideshow {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
+
+      .slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 1.5s ease-in-out;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      .slide.active {
+        opacity: 1;
+      }
+
+      .hero-content {
+        max-width: 800px;
+        z-index: 2;
+        transform: translateY(20px);
+        opacity: 0;
+        animation: fadeUp 1s forwards 0.5s;
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        max-width: 600px;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .btn {
+        display: inline-block;
+        background-color: var(--accent);
+        color: var(--dark);
+        padding: 12px 30px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: var(--transition);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .btn:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .scroll-down {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: var(--light);
+        font-size: 1.5rem;
+        animation: bounce 2s infinite;
+        cursor: pointer;
+      }
+
+      /* Sections */
+      section {
+        padding: 100px 5%;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 15px;
+      }
+
+      .section-title p {
+        color: #666;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .about {
+        background-color: var(--secondary);
+      }
+
+      .about-content {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .about-text {
+        flex: 1;
+      }
+
+      .about-text h3 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: var(--dark);
+      }
+
+      .about-image {
+        flex: 1;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .about-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: var(--transition);
+      }
+
+      .about-image:hover img {
+        transform: scale(1.05);
+      }
+
+      .services {
+        background-color: var(--light);
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .service-card {
+        background: var(--light);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: var(--transition);
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .service-image {
+        height: 200px;
+        overflow: hidden;
+      }
+
+      .service-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: var(--transition);
+      }
+
+      .service-card:hover .service-image img {
+        transform: scale(1.1);
+      }
+
+      .service-content {
+        padding: 25px;
+      }
+
+      .service-content h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        color: var(--primary);
+      }
+
+      /* WhatsApp Button */
+      .whatsapp-float {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 60px;
+        height: 60px;
+        background-color: #25d366;
+        color: var(--light);
+        border-radius: 50%;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        z-index: 100;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: pulse 2s infinite;
+        transition: var(--transition);
+      }
+
+      .whatsapp-float:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      .whatsapp-float i {
+        font-size: 1.8rem;
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--dark);
+        color: var(--light);
+        padding: 60px 5% 30px;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+        max-width: 1200px;
+        margin: 0 auto 40px;
+      }
+
+      .footer-column h3 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        color: var(--accent);
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 10px;
+      }
+
+      .footer-links a {
+        color: var(--secondary);
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .footer-links a:hover {
+        color: var(--accent);
+        padding-left: 5px;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .social-links a {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: var(--light);
+        transition: var(--transition);
+      }
+
+      .social-links a:hover {
+        background-color: var(--accent);
+        transform: translateY(-5px);
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      /* Animations */
+      @keyframes fadeUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0) translateX(-50%);
+        }
+        40% {
+          transform: translateY(-20px) translateX(-50%);
+        }
+        60% {
+          transform: translateY(-10px) translateX(-50%);
+        }
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+        }
+        70% {
+          box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+        }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 992px) {
+        .about-content {
+          flex-direction: column;
+        }
+
+        .hero h1 {
+          font-size: 2.8rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: block;
+        }
+
+        .nav-links {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          width: 70%;
+          height: 100vh;
+          background-color: var(--dark);
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          transition: var(--transition);
+          z-index: 1000;
+        }
+
+        .nav-links.active {
+          right: 0;
+        }
+
+        .nav-links li {
+          margin: 15px 0;
+        }
+
+        .hero h1 {
+          font-size: 2.2rem;
+        }
+
+        .hero p {
+          font-size: 1rem;
+        }
+
+        .section-title h2 {
+          font-size: 2rem;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .hero h1 {
+          font-size: 1.8rem;
+        }
+
+        .btn {
+          padding: 10px 25px;
+        }
+
+        section {
+          padding: 70px 5%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header with Navigation -->
+    <header>
+      <nav id="navbar" class="navbar">
+        <a href="#" class="logo">Green<span>Hub</span> Resort</a>
+        <div class="menu-toggle" id="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="booking.html">Book Now</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="booking.html" class="btn">Book Now</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="slideshow">
+        <div
+          class="slide active"
+          style="
+            background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+          "
+        ></div>
+        <div
+          class="slide"
+          style="
+            background-image: url('https://images.unsplash.com/photo-1556909114-4d0d853e5e25?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+          "
+        ></div>
+        <div
+          class="slide"
+          style="
+            background-image: url('https://images.unsplash.com/photo-1586375300773-8384e3e4916f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+          "
+        ></div>
+        <div
+          class="slide"
+          style="
+            background-image: url('https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+          "
+        ></div>
+      </div>
+
+      <div class="hero-content">
+        <h1>Luxury Meets Nature</h1>
+        <p>
+          Experience the perfect blend of elegance and tranquility at GreenHub
+          Resort Masii, where nature-inspired luxury awaits you.
+        </p>
+        <a href="booking.html" class="btn">Book Your Stay</a>
+      </div>
+
+      <div class="scroll-down">
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+      <div class="section-title">
+        <h2>Welcome to GreenHub Resort</h2>
+        <p>Discover our serene oasis nestled in the heart of Machakos, Kenya</p>
+      </div>
+
+      <div class="about-content">
+        <div class="about-text">
+          <h3>Your Perfect Getaway Awaits</h3>
+          <p>
+            At GreenHub Resort Masii, we offer a unique experience where luxury
+            seamlessly blends with nature. Our resort is designed to provide you
+            with the ultimate relaxation and rejuvenation.
+          </p>
+          <p>
+            From our beautifully appointed cottages to our authentic dining
+            experiences, every detail has been carefully crafted to ensure your
+            stay is memorable.
+          </p>
+          <p>
+            Whether you're seeking a romantic escape, a family vacation, or a
+            business retreat, GreenHub Resort offers the perfect setting for all
+            occasions.
+          </p>
+          <a href="about.html" class="btn">Learn More</a>
+        </div>
+        <div class="about-image">
+          <img
+            src="https://images.unsplash.com/photo-1540541338287-41700207dee6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            alt="GreenHub Resort"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+      <div class="section-title">
+        <h2>Our Services</h2>
+        <p>Experience the best of what we have to offer</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-image">
+            <img
+              src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+              alt="Luxury Accommodation"
+            />
+          </div>
+          <div class="service-content">
+            <h3>Luxury Accommodation</h3>
+            <p>
+              Relax in our beautifully designed cottages and rooms, each
+              offering comfort and elegance with stunning views of our lush
+              gardens.
+            </p>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-image">
+            <img
+              src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+              alt="Authentic Dining"
+            />
+          </div>
+          <div class="service-content">
+            <h3>Authentic Dining</h3>
+            <p>
+              Savor our delicious Kienyeji chicken and other local delicacies
+              prepared with fresh ingredients and traditional recipes.
+            </p>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-image">
+            <img
+              src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+              alt="Recreation & Wellness"
+            />
+          </div>
+          <div class="service-content">
+            <h3>Recreation & Wellness</h3>
+            <p>
+              Unwind by our swimming pools, enjoy nature walks, or simply relax
+              in our serene gardens surrounded by beautiful scenery.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WhatsApp Float Button -->
+    <a
+      href="https://wa.me/254723562484?text=Hello%20GreenHub%20Resort,%20I%27d%20like%20to%20make%20a%20booking."
+      class="whatsapp-float"
+      target="_blank"
+    >
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer id="contact">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>GreenHub Resort</h3>
+          <p>
+            Experience luxury in the heart of nature at our serene resort in
+            Machakos, Kenya.
+          </p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-tripadvisor"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="booking.html">Book Now</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Contact Us</h3>
+          <ul class="footer-links">
+            <li>
+              <i class="fas fa-map-marker-alt"></i> Masii, Machakos, Kenya
+            </li>
+            <li><i class="fas fa-phone"></i> +254 723 562 484</li>
+            <li><i class="fas fa-envelope"></i> info@greenhubresort.com</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="copyright">
+        <p>&copy; 2025 GreenHub Resort Masii. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      // Sticky Navigation
+      window.addEventListener("scroll", function () {
+        const navbar = document.getElementById("navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Mobile Menu Toggle
+      const menuToggle = document.getElementById("menu-toggle");
+      const navLinks = document.getElementById("nav-links");
+
+      menuToggle.addEventListener("click", function () {
+        navLinks.classList.toggle("active");
+      });
+
+      // Image Slideshow
+      let currentSlide = 0;
+      const slides = document.querySelectorAll(".slide");
+      const slideCount = slides.length;
+
+      function showSlide(n) {
+        slides.forEach((slide) => slide.classList.remove("active"));
+        currentSlide = (n + slideCount) % slideCount;
+        slides[currentSlide].classList.add("active");
+      }
+
+      function nextSlide() {
+        showSlide(currentSlide + 1);
+      }
+
+      // Change slide every 5 seconds
+      setInterval(nextSlide, 5000);
+
+      // Scroll Down Arrow
+      const scrollDown = document.querySelector(".scroll-down");
+      scrollDown.addEventListener("click", function () {
+        window.scrollTo({
+          top: window.innerHeight,
+          behavior: "smooth",
+        });
+      });
+
+      // Smooth Scrolling for Navigation Links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+
+            // Close mobile menu if open
+            navLinks.classList.remove("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
