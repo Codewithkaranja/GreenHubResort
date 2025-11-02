@@ -25,7 +25,7 @@
 
       // Typewriter Effect
       const typewriterElement = document.getElementById("typewriter");
-      const words = ["Luxury", "Comfort", "Nature", "Peace"];
+      const words = ["Luxury", "Comfort", "Nature", "Tranquility"];
       let wordIndex = 0;
       let charIndex = 0;
       let isDeleting = false;
