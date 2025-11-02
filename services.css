@@ -49,7 +49,7 @@
 }
 
 .navbar.scrolled {
-  background-color: var(--light);
+  background-color: transparent;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
   padding: 1rem 5%;
 }
@@ -66,7 +66,7 @@
 }
 
 .navbar.scrolled .logo {
-  color: var(--primary);
+  color: transparent;
 }
 
 .logo span {
@@ -324,7 +324,7 @@
       /* Services Section */
       .services {
         padding: 120px 5%;
-        background-color: var(--light);
+        background-color: black;
       }
 
       .services .section-title {
@@ -338,6 +338,9 @@
       .services .section-title.visible {
         transform: translateY(0);
         opacity: 1;
+      }
+      .services p{
+        color: white;
       }
 
       .services-grid {
@@ -584,7 +587,7 @@
       /* Testimonials Section */
       .testimonials {
         padding: 100px 5%;
-        background-color: var(--light);
+        background-color: black;
       }
 
       .testimonials .section-title {
@@ -651,7 +654,7 @@
       .cta-section {
         padding: 100px 5%;
         background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-          url("GreenHub Swimming pool 2.webp");
+          url("https://images.unsplash.com/photo-1541987817603-d2b3e0fad6d0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fHN3aW1taW5nJTIwcG9vbCUyMGluJTIwYSUyMGhvdGVsfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500");
         background-size: cover;
         background-position: center;
         color: var(--light);
@@ -666,11 +669,13 @@
       .cta-content h2 {
         font-size: 2.5rem;
         margin-bottom: 20px;
+        color: var(--primary);
       }
 
       .cta-content p {
         margin-bottom: 30px;
         font-size: 1.1rem;
+        
       }
 
       .cta-buttons {

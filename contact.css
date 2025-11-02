@@ -50,7 +50,7 @@
 }
 
 .navbar.scrolled {
-  background-color: var(--light);
+  background-color: transparent;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
   padding: 1rem 5%;
 }
@@ -160,7 +160,7 @@
         padding: 0 5%;
         overflow: hidden;
         background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
-          url("https://lh3.googleusercontent.com/p/AF1QipMbnKmMyzVrXhSnNc2IA7pvFORgvP1GKGpFHL7F=w243-h174-n-k-no-nu");
+          url("https://images.unsplash.com/photo-1574283006478-b972c6861ce9?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODl8fGhvdGVsJTIwd2Vic2l0ZSUyMGltYWdlc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500");
         background-size: cover;
         background-position: center;
       }
@@ -177,6 +177,7 @@
         font-size: 3rem;
         margin-bottom: 1rem;
         text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        color: #d4af37;
       }
 
       .hero p {
@@ -208,6 +209,7 @@
         gap: 60px;
         max-width: 1200px;
         margin: 0 auto;
+       
       }
 
       .contact-info {
@@ -416,7 +418,7 @@
       /* Social Media Section */
       .social-media {
         padding: 80px 5%;
-        background-color: var(--secondary);
+        background-color: black;
         text-align: center;
       }
 
