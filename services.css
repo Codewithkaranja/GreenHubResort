@@ -30,107 +30,121 @@
         line-height: 1.2;
       }
 
-      /* Header & Navigation */
       header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 1000;
-        transition: var(--transition);
-      }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: var(--transition);
+}
 
-      nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1.5rem 5%;
-        background-color: transparent;
-        transition: var(--transition);
-      }
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 5%;
+  background-color: transparent;
+  transition: var(--transition);
+}
 
-      nav.scrolled {
-        background-color: var(--light);
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        padding: 1rem 5%;
-      }
+.navbar.scrolled {
+  background-color: var(--light);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  padding: 1rem 5%;
+}
 
-      .logo {
-        display: flex;
-        align-items: center;
-        font-family: "Playfair Display", serif;
-        font-size: 1.8rem;
-        font-weight: 700;
-        color: var(--light);
-        text-decoration: none;
-        transition: var(--transition);
-      }
+/* Logo styling */
+.logo {
+  display: flex;
+  align-items: center;
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--light);
+  text-decoration: none;
+}
 
-      nav.scrolled .logo {
-        color: var(--primary);
-      }
+.navbar.scrolled .logo {
+  color: var(--primary);
+}
 
-      .logo span {
-        color: var(--accent);
-      }
+.logo span {
+  color: var(--accent);
+}
 
-      .logo::before {
-        content: "🍃";
-        margin-right: 10px;
-        font-size: 1.5rem;
-      }
+/* Style the logo image */
+.logo img {
+  width: 200px;        /* Adjust height */
+  height:200px;       /* Maintain aspect ratio */
+  object-fit: contain;
+  margin-right: 10px;
+}
 
-      .nav-links {
-        display: flex;
-        list-style: none;
-      }
+/* Navbar links */
+.nav-links {
+  display: flex;
+  list-style: none;
+}
 
-      .nav-links li {
-        margin-left: 2rem;
-      }
+.nav-links li {
+  margin-left: 2rem;
+}
 
-      .nav-links a {
-        color: var(--light);
-        text-decoration: none;
-        font-weight: 500;
-        transition: var(--transition);
-        position: relative;
-      }
+.nav-links a {
+  color: var(--light);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+  position: relative;
+}
 
-      nav.scrolled .nav-links a {
-        color: var(--dark);
-      }
+.navbar.scrolled .nav-links a {
+  color: var(--dark);
+}
 
-      .nav-links a:hover {
-        color: var(--accent);
-      }
+.nav-links a:hover {
+  color: var(--accent);
+}
 
-      .nav-links a::after {
-        content: "";
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background-color: var(--accent);
-        transition: var(--transition);
-      }
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent);
+  transition: var(--transition);
+}
 
-      .nav-links a:hover::after {
-        width: 100%;
-      }
+.nav-links a:hover::after {
+  width: 100%;
+}
 
-      .menu-toggle {
-        display: none;
-        font-size: 1.5rem;
-        color: var(--light);
-        cursor: pointer;
-        transition: var(--transition);
-      }
+/* Menu toggle (mobile) */
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  color: var(--light);
+  cursor: pointer;
+}
 
-      nav.scrolled .menu-toggle {
-        color: var(--dark);
-      }
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .logo img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  .nav-links li {
+    margin-left: 1.5rem;
+  }
+}
 
       /* Hero Section */
       .hero {
