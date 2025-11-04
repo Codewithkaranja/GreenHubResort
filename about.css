@@ -76,8 +76,8 @@ header {
 
 /* Style the logo image */
 .logo img {
-  width: 200px;        /* Adjust height */
-  height:200px;       /* Maintain aspect ratio */
+  width: 150px;        /* Adjust height */
+  height:150px;       /* Maintain aspect ratio */
   object-fit: contain;
   margin-right: 10px;
 }
@@ -134,8 +134,8 @@ header {
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .logo img {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
   }
 
   .logo {

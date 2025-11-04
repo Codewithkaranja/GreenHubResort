@@ -32,7 +32,7 @@
 
       /* Header & Navigation */
       header {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -134,8 +134,8 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .logo img {
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
   }
 
   .logo {
